@@ -30,3 +30,14 @@ if ( ! db.getUser("ro-user")){
     );
 
 }
+
+var rolesCursor = db.system.roles.find()
+var usersCursor = db.system.users.find()
+
+while (rolesCursor.hasNext()) {
+   print(tojson(rolesCursor.next().role));
+}
+
+while (usersCursor.hasNext()) {
+   print(tojson(usersCursor.next().user));
+}
